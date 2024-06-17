@@ -1,0 +1,13 @@
+.block {
+    background-color: white;
+    min-height: 500px;
+    z-index: 200;
+    position: relative;
+    margin-top: -320px;
+    margin-bottom: -290px;
+    border-radius: 19px;
+    border: 3px solid black;
+}
+input {
+     border-radius: 12px !important;
+}

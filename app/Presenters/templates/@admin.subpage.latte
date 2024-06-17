@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>{ifset title}{include title|stripHtml} | {/ifset}Admin na doma</title>
+  <link rel="icon" type="image/x-icon" href="{$basePath}/images/favicon.ico">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="{$basePath}/css/pay.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+</head>
+<div class="bodyDiv">
+<nav class="navbar navbar-expand-lg pl-12 d-flex justify-content-between">
+  <a class="navbar-brand" n:href="Admin:dashboard">
+    <img src="{$basePath}/images/adminPage/logoAdmin.png" class="imgLogo d-inline-block align-top" width="310" height="100" alt="logo"/>
+  </a>
+  <div class="d-flex flex-row icons">
+    <a n:href="Admin:dashboard" class="my-2 mx-2 rounded">
+      <img class="adminIcon px-3 py-3" src="{$basePath}/images/adminPage/back.png" alt="Zpěz" />
+    </a>
+  </div>
+</nav>
+{include content}
+<div class="varovani text-center mt-5 pt-5">
+  <a n:href="Home:default" class="my-2 mx-2 rounded">
+      <img class="px-3 py-3" src="{$basePath}/images/adminPage/warn.png" alt="graf" />
+      <p class=" pt-4 fs-3 fw-bold warText">Nemáte dostatečně velikou obrazovku pro přístup na Admin stránku.</p>
+      <p class="fs-3 fw-bold warText">Zpět na hlavní stránku</p>
+  </a>
+</div>
+</html>

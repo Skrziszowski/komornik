@@ -1,0 +1,45 @@
+body {
+  background-color: rgb(255, 203, 15);
+  font-family: Arial, Helvetica, sans-serif;
+  color: #333;
+}
+
+form {
+  max-width: 450px;
+  background-color: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+a {
+  text-decoration: none;
+}
+
+#send input{
+  height: 45px !important;
+  border: 0px !important;
+  outline: none;
+}
+
+input {
+  border: 1px solid #ddd !important;
+  border-radius: 4px;
+  transition: border-color 0.3s ease-in-out;
+  outline: none !important;
+  outline-style: none !important;
+}
+
+input:focus {
+  border-color: rgb(255, 203, 15) !important;
+}
+
+@media (max-width: 500px) {
+  form {
+    width: 350px;
+  }
+  p {
+    font-size: 19px !important;
+    padding: 10px;
+  }
+}

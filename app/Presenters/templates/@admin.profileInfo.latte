@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>Nastavení účtu - Uživatel #{$selectedUserId}</title>
+  <link rel="icon" type="image/x-icon" href="{$basePath}/images/favicon.ico">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="{$basePath}/css/profileInfo.css">
+</head>
+
+<div id="id01" class="mx-auto my-auto formData">
+  <form n:name="profileInfoForm" class="row g-3 px-3 py-3 text-center modal-content animate mx-auto mt-4">
+    <a n:href="Admin:dashboard">
+        <span class="close">x</span>
+    </a>
+    <div class="container row text-center ml-3">
+      <h3 class="mt-4 mb-4">Základní informace (User #{$selectedUser->user_id})</h3>
+      <ul class="errors p-0" n:ifcontent>
+          <li n:foreach="$form->getErrors() as $error" class="list-group-item list-group-item-danger p-3 rounded">{$error}</li>
+      </ul>
+      <div class="col-2">
+        {label name, class => "form-label d-block"}Jméno{input name,class => "form-control my-3 col-md-12 mb-3",value => "{$selectedUser->name}"} {/label}
+      </div>
+      <div class="col-3">
+        {label surname, class => "form-label d-block"}Příjmení{input surname,class => "form-control my-3 col-md-12 mb-3",value => "{$selectedUser->surname}"} {/label}
+      </div>
+      <div class="col-2">
+         {label dayB, class => "form-label d-block"}Datum narození{input dayB,class => "form-control my-3 col-md-12 mb-3",value => "{$selectedUser->dayB}"} {/label}
+      </div>
+      <div class="col-3">
+        {label mail, class => "form-label d-block"}Email{input mail,class => "form-control my-3 col-md-12 mb-3", value => "{$selectedUser->email}"} {/label}
+      </div>
+      <div class="col-2">
+        {label gender, class => "form-label d-block"}Pohlaví{input gender,class => "form-control my-3 col-md-12 mb-3", value => "{$selectedUser->gender}"} {/label}
+      </div>
+    </div>
+    <div class="container row text-center mt-4">
+      <h4>Dodatečné informace</h4>
+      <div class="col-2"></div>
+      <div class="col-2">
+        {label phone, class => "form-label d-block"}Telefon{input phone,class => "form-control my-3 col-md-12 mb-3", value => "{$selectedUser->phone}"} {/label}
+      </div>
+      <div class="col-3">
+        {label city, class => "form-label d-block"}Město{input city,class => "form-control my-3 col-md-12 mb-3", value => "{$selectedUser->city}"} {/label}
+      </div>
+      <div class="col-3">
+        {label address, class => "form-label d-block"}Adresa{input address,class => "form-control my-3 col-md-12 mb-3", value => "{$selectedUser->address}"} {/label}
+      </div>
+      <div class="col-2"></div>
+    </div> 
+    <div class="container row text-center">
+      <h4>Bonusové informace</h4>
+      <div class="col-4"></div>
+      <div class="col-4">
+        <p>Počet všech objednávek: {$countOrders}</p>
+      </div>
+    </div>
+    <div class="container mb-3">
+      {input save, class => 'mt-3 btn btn-success mr-1', type => 'submit'}
+      {input delete, class => 'mt-3 btn btn-warning', type => 'submit'}
+    </div>
+  </form>
+</div>
+  
+<div class="varovani text-center mt-5 pt-5">
+  <a n:href="Home:default" class="my-2 mx-2 rounded">
+      <img class="px-3 py-3" src="{$basePath}/images/adminPage/warn.png" alt="graf" />
+      <p class=" pt-4 fs-3 fw-bold warText">Nemáte dostatečně velikou obrazovku pro přístup na Admin stránku.</p>
+      <p class="fs-3 fw-bold warText">Zpět na hlavní stránku</p>
+  </a>
+</div>
+</html>

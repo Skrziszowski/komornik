@@ -1,0 +1,52 @@
+{block content}
+<div class="d-flex align-items-center text-center justify-content-center flex-wrap">
+<div>
+  <div class="row mb-3">
+      <a n:href="Admin:Login" class="col-2">
+        <button type="button" class="btn btn-secondary mb-1 closeButton">Zpět</button>
+      </a>
+  </div>  
+  <form n:name="registerForm" class="g-3">
+    <ul class="errors p-0 " n:ifcontent>
+        <li n:foreach="$form->getErrors() as $error" class="list-group-item list-group-item-danger p-3 rounded">{$error}</li>
+    </ul>
+    <h2 class="mb-4 mt-2" n:block="title">Registrace</h2>
+    <div class="col-12">
+      {input email, class => "form-control my-3 col-md-12 mb-3", placeholder => "E-mailová adresa"}
+    </div>
+    <div class="col-12">
+      {input password, class => 'form-control my-3 col-md-12 mb-3', placeholder => 'Heslo'}
+    </div>
+    <div class="col-12">
+      {input password_again, class => 'form-control my-3 col-md-12', placeholder => 'Podtvrdit heslo'}
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        {input name, class => "form-control col-md-12 mb-3", placeholder => 'Křestní jméno'}
+      </div>
+      <div class="col-md-6">
+        {input surname, class => "form-control col-md-12 mb-3", placeholder => 'Příjmení'} 
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-5">
+        {label gender, class => "form-label d-block"}Pohlaví<select n:name="gender" class="form-control col-md-12 mb-3"></select>{/label}
+      </div>
+      <div class="col-md-2"></div>
+      <div class="col-md-5">
+        {label dayB, class => "form-label d-block"}Narozen/a{input dayB, class => "form-control col-md-12 mb-4"}{/label}
+      </div>
+    </div>
+    <div class="col-12">
+      {input phone, class => "form-control col-md-12 mb-3", placeholder => 'Telefonní číslo'}
+    </div>
+    <div id="send" class="col-12">
+      {input send, class => 'btn btn-warning col-12', type => 'submit'}
+    </div>
+  </form>
+  </div>
+</div>
+<div class="col-12 my-4 text-center">
+  <span class="h4">* Doporučujeme nezadávat heslo stejné jako email. Kombinujte znaky, číslice, velká a malá písmena. Zvyšujete tím bezpečnost.<br>Telefonní číslo zadávejte jako 9-místné číslo bez mezer a předčíslí.</span>
+</div>

@@ -1,0 +1,61 @@
+#footer-transition {
+    height: 650px;
+    width: 100%;
+}
+
+footer {
+    background: rgb(255, 203, 15);
+    justify-content: center;
+    min-height: inherit;
+    bottom: 0;
+    position: static;
+    text-align: center;
+    color: black;
+    margin-top: -250px;
+}
+
+a {
+    text-decoration: none;
+}
+
+footer h2 {
+    font-size: 2.3em;
+    font-weight: 700;
+}
+footer p {
+    font-size: 1.5em;
+}
+
+footer a {
+    color: inherit;
+}
+
+footer a:hover {
+    color: inherit;
+    text-decoration: underline;
+}
+
+#socials {
+    width: 100%;
+    padding: 30px;
+    box-sizing: border-box;
+    border-top: 3px solid black;
+    font-size: 19px;
+}
+
+#socials i {
+    font-size: 150%;
+}
+
+#socials a{
+    padding: 15px;
+}
+
+@media screen and (max-width: 350px) {
+    footer h2 {
+        font-size: 2.0em;
+    }
+    footer p {
+        font-size: unset;
+    }
+  }

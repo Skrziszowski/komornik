@@ -1,0 +1,23 @@
+{block content}
+<style>
+	#nette-error { margin-left: auto; margin-right: auto; left: 0; right: 0; position: absolute !important; z-index:4 !important; height: 70vh; min-height: 400px; align-items: center; justify-content: center; }
+	#nette-error div { all: initial;margin-top:-380px !important; max-width: 550px; background: white; color: #333; display: block; box-shadow: 0 10px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19) !important;}
+	#nette-error h1 { all: initial; font: bold 50px/1.1 sans-serif; display: block; padding-top:40px;margin: 40px; }
+	#nette-error p { all: initial; font: 20px/1.4 sans-serif; margin: 40px; display: block; }
+	#nette-error small { color: gray; }
+	#nette-error a { line-height: 54px; height: 70px !important; font-size: 24px !important; font: 20px/1.4 sans-serif; color: white; border-radius: 0px; }
+</style>
+
+<div id="nette-error">
+	<div class="mx-auto">
+		<h1>Stránka nebyla nalezena #404</h1>
+
+		<p>Je nám líto, ale požadovaná stránka nebyla nalezena.</p>
+		<p>Ujistěte se, že jste neudělali chybu v URL adrese.
+		Je možné, že byla stránka přemístěna nebo odstraněna.</p>
+		<p><small>error 404</small></p>
+
+		<a n:href="Home:" class="mx-auto btn btn-primary btn-lg font-weight-bold col-12">Přejít na hlavní stránku</a>
+	</div>
+</div>
+{/block}

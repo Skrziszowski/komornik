@@ -1,0 +1,138 @@
+{block content}
+<div class="container content">
+    <div class="block">
+    <div class="container p-5">
+        <div class="row">
+            <div class="col-12 text-center pb-5">
+                <h1>Objednávka #{$order->getOrderNumber()}</h1>
+            </div>
+        </div>
+        <div class="row d-flex justify-content-between">
+            <div class="col-12 col-xl-8">
+                <form n:name="orderForm" method="post">
+                <ul class="errors p-0" n:ifcontent>
+                    <li n:foreach="$form->getErrors() as $error" class="list-group-item list-group-item-danger p-3 mt-2 rounded">{$error}</li>
+                </ul>
+                <div class="row">
+                    <label class="col-12 pb-3 d-flex justify-content-between">
+                    <span class="fname align-items-center d-flex h5">Jméno *</span>
+                    {input fname, class=>'col-8 col-xl-10 border mx-2 p-2', value=>$loggedUser->name}
+                    </label>
+                </div>
+                <div class="row">
+                    <label class="col-12 pb-3 d-flex justify-content-between">
+                    <span class="fname align-items-center d-flex h5">Příjmení *</span>
+                    {input lname, class=>'col-8 col-xl-10 border mx-2 p-2', value=>$loggedUser->surname}
+                    </label>
+                </div>
+                <div class="row">
+                    <label class="col-12 pb-3 d-flex justify-content-between">
+                    <span class="fname align-items-center d-flex h5">Ulice, č.p. *</span>
+                    {input street, class=>'col-8 col-xl-10 border mx-2 p-2', value=>$loggedUser->address}
+                    </label>
+                </div>
+                <div class="row">
+                    <label class="col-12 pb-3 d-flex justify-content-between">
+                    <span class="fname align-items-center d-flex h5">Město *</span>
+                    {input city, class=>'col-8 col-xl-10 border mx-2 p-2',  value=>$loggedUser->city}
+                    </label>
+                </div>
+                <div class="row">
+                    <label class="col-12 pb-3 d-flex justify-content-between">
+                    <span class="fname align-items-center d-flex h5">Telefon *</span>
+                    {input phone, class=>'col-8 col-xl-10 border mx-2 p-2', value=>$loggedUser->phone}
+                    </label>
+                </div>
+                <div class="row">
+                    <label class="col-12 pb-3 d-flex justify-content-between">
+                    <span class="fname align-items-center d-flex h5">E-mail *</span>
+                    {input email, class=>'col-8 col-xl-10 border mx-2 p-2', value=>$loggedUser->email}
+                    </label>
+                </div>
+                <div class="row d-flex justify-content-between">
+                    <label class="col-12 col-xl-6 pb-3 d-flex justify-content-between">
+                    <span class="fname align-items-center d-flex h5">Hodina *</span>
+                    {input timeInput, id=>'timeInput', class=>'col-8 border mx-2 mx-xl-1 p-2'}
+                    </label>
+                    <label class="col-12 col-xl-6 pb-3 d-flex justify-content-between">
+                    <span class="fname align-items-center d-flex h5">Datum *</span>
+                    {input dateInput, id=>'dateInput', class=>'col-8 border mx-2 p-2', max=>'2024-12-31'}
+                    </label>
+                </div>
+                <div class="row">
+                    <label class="col-12 pb-3 d-flex justify-content-between">
+                    <span class="fname align-items-center d-flex h5">Poznámka</span>
+                    {input infoText, class=>'col-8 col-xl-10 border mx-2 p-2'}
+                    </label>
+                </div>
+                <div class="row">
+                    <span>* - vyplnění údajů s tímto symbolem je nezbytné pro dokončení objednávky</span>
+                </div>
+                <div class="row mb-3 mx-xl-1">
+                    {input send, class => 'btn btn-primary my-3 py-2', type => 'submit',onclick=>'return confirm("Odkliknutím Ok se zavazujete ke správnosti osobních údajů a k uhrazení ceny objednávky. Následujte pokyny na další stránce.");'}
+                </div>
+                </form>
+            </div>
+            <div id="summary" class="col-12 col-xl-4 border px-4">
+                <div class="row">
+                    <h3 class="text-center mt-3 mb-0">Shrnutí</h3>
+                </div>
+                <hr>
+                <div class="row d-flex justify-content-between">
+                    <span class="col-5">Název:</span>
+                    <span class="col-6">{$order->getServiceName()}</span>
+                </div>
+                <hr>
+                <div class="row d-flex justify-content-between">
+                    <span class="col-5">Tarif:</span>
+                    <span class="col-6">{$order->getProgram()}</span>
+                </div>
+                <hr>
+                <div class="row d-flex justify-content-between">
+                    <span class="col-5">Cena:</span>
+                    <span class="col-6">{$order->getAmount()} Kč</span>
+                </div>
+                <hr>
+                <div class="row d-flex justify-content-between">
+                    <span class="col-5">Čas:</span>
+                    <span id="summary-time" class="col-6">-</span>
+                </div>
+                <hr>
+                <div class="row d-flex justify-content-between">
+                    <span class="col-5">Datum:</span>
+                    <span id="summary-date" class="col-6">-</span>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="mb-2">
+                        <input class="text-left"type="radio" checked> Platba převodem
+                    </div>
+                    <small class="mb-4">
+                        Proveďte platbu přímo na náš bankovní účet. Jako variabilní symbol (VS) pro platbu prosím použijte své ID objednávky. Vaše objednávka nebude schválena, dokud nebudou peníze připsány na náš účet.                    </small>
+                    </small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const dateInput = document.getElementById('dateInput');
+        const timeInput = document.getElementById('timeInput');
+        const summaryDate = document.getElementById('summary-date');
+        const summaryTime = document.getElementById('summary-time');
+
+        dateInput.addEventListener('change', updateSummary);
+        timeInput.addEventListener('change', updateSummary);
+
+        function updateSummary() {
+            const selectedDate = new Date(dateInput.value);
+            const formattedDate = selectedDate.toLocaleDateString('cs-CZ', { year: 'numeric', month: '2-digit', day: '2-digit' });
+            const formattedTime = timeInput.value;
+
+            summaryDate.innerText = formattedDate;
+            summaryTime.innerText = formattedTime;
+        }
+    });
+</script>

@@ -1,0 +1,273 @@
+{block content}
+
+<script type="text/javascript" src="{$basePath}/scripts/animace.js"></script>
+
+<div class="block" id="opening">
+    <div class="container pt-5">
+            <div id="block1" class="row">
+                <h1 id="heading" class="mx-auto"></h1>
+            </div>
+            <div class="row px-3">
+                <h2 id="opening-cap" class="cap mx-auto"></h2>
+            </div>
+    </div>
+</div>
+
+<div class="block" id="block2">
+    <div class="container" id="services">
+        <div class="row">
+            <h1 id="services-heading" class="mx-auto heading pb-5">Naše služby</h1>
+        </div>
+        <div id="cards" class="row">
+            <div class="mx-auto">
+                <div class="row justify-content-center">
+                    <div class="col-12 px-4">
+                        <div class="d-flex flex-wrap justify-content-center">
+                             {foreach $services as $service}
+                                <a n:href="Home:detail $service->service_id">
+                                    <div class="col-6 col-md-4 card mx-2 my-2">
+                                        <div class="card-img-container">
+                                            <img class="card-img-top mt-2 mb-2" src="{$basePath}/{$service->image_source_card}" alt="{$service->heading_card}" />
+                                            <h4 class="card-title">{$service->heading_card}</h4>
+                                        </div>
+                                    </div>
+                                </a>
+                            {/foreach}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div>
+    <img id="bottomPic" src="{$basePath}/images/leftFooter.png">
+</div>
+
+<div class="block block-one" id="block3">
+    <div class="container">
+    <div class="row">
+        <div class="mx-auto col-12 col-xl-6 p-5">
+            <img id="qualities-image" class="col-9 mx-auto d-block" src="{$basePath}/images/plumber.png" alt="Plumber">
+        </div>
+
+        <div id="qualities" class="mx-auto col-12 col-xl-6 p-5 mt-3">
+            <div class="row">
+                <h1 class="mx-auto text-center heading">Jsme jedničkami v oboru</h1>
+            </div>
+
+            <div class="h2 row mt-5 justify-content-center">
+                <div class="d-flex justify-content-center align-items-center">
+                    <i class="fa-solid fa-check fa-2x mr-2" style="color: #00ff40; margin-right: 48px; margin-left: 10px;"></i>
+                    <h3 class="text-center mb-0">Máme nejlepší ceny na celém trhu</h3>
+                </div>
+            </div>
+
+            <div class="h2 row mt-5 justify-content-center">
+                <div class="d-flex justify-content-center align-items-center">
+                    <i class="fa-solid fa-check fa-2x mr-2" style="color: #00ff40; margin-right: 48px; margin-left: 10px;"></i>
+                    <h3 class="text-center">Služby poskytujeme po celé republice</h3>
+                </div>
+            </div>
+
+            <div class="h2 row mt-5 justify-content-center">
+                <div class="d-flex justify-content-center align-items-center">
+                    <i class="fa-solid fa-check fa-2x mr-2" style="color: #00ff40; margin-right: 48px; margin-left: 10px;"></i>
+                    <h3 class="text-center">Sehnali jsme ty nejlepší lidi z branže</h3>
+                </div>
+            </div>
+            
+            <div class="h2 row mt-5 justify-content-center">
+                <div class="d-flex justify-content-center align-items-center">
+                    <i class="fa-solid fa-check fa-2x mr-2" style="color: #00ff40; margin-right: 48px; margin-left: 10px;"></i>
+                    <h3 class="text-center">Ušetříme vám čas na důležitější věci</h3>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    </div>
+</div>
+
+<div id="block4" class="block">
+	<div class="container">
+		<div class="row px-3 pt-5">
+			<h2 id="pillars-heading" class="heading mx-auto">Dvě zásady</h2>
+		</div>
+		<div class="row px-3 pt-5 mx-auto">
+
+			<div id="left-pillar" class="col-12 col-xl-6 left-banner"></div>
+
+			<div id="right-pillar" class="col-12 col-xl-6 right-banner p-3">
+				<div class="right-content col-12 p-5">
+				<div class="row pb-2">
+					<img class="apostrofa mx-auto" src="{$basePath}/images/apostrof.png" alt="apostrof">
+				</div>
+				<div class="row pb-5">
+					<span>
+					Kvalitní práce odvedená šikovnými proškolenými lidmi, kteří ochotně poradí a pomůžou s vašimi problémy.
+					</span>
+				</div>
+				<div class="row pb-2">
+					<img class="apostrofa mx-auto" src="{$basePath}/images/apostrof.png" alt="apostrof">
+				</div>
+				<div class="row">
+					<span>
+						Naším cílem je spokojenost zákazníka a dobře odvedená práce. Zakládáme si na budování důvěry mezi firmou a klientem.
+					</span>
+				</div>
+				</div>
+			</div>
+		</div>
+		<div class="row px-3 pt-5"></div>
+	</div>
+</div>
+
+<div id="block5" class="block">
+    <div id="carouselExampleRide" class="carousel slide" data-bs-ride="">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleRide" data-bs-slide-to="0" class="active" aria-label="Slide 1" aria-current="true"></button>
+            <button type="button" data-bs-target="#carouselExampleRide" data-bs-slide-to="1" aria-label="Slide 2" class=""></button>
+            <button type="button" data-bs-target="#carouselExampleRide" data-bs-slide-to="2" aria-label="Slide 3" class=""></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div id="slide1" class="slide d-flex w-100">
+                    <div class="text-center mx-auto d-flex justify-content-center align-items-center review container">
+                        <div class="row">
+                            <div class="commentLeft col-12 col-lg-6 py-5 px-5">
+                                <div class="row pb-3">
+                                    <div class="col-12 profil">
+                                        <img class="profil-img" src='{$basePath}/images/customers/26.png' alt="Pavel">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 profil-name">Pavel Potměšil, 26 let</div>
+                                </div>
+                                <div class="row pt-3">
+                                    <div class="col-12 d-flex">
+                                        <p class="komentar d-flex align-items-center">
+                                            Váš servis je úžasný! Zahradnické služby, které jsem si objednal proměnily mou zanedbanou zahradu v prostor pro relaxaci a rodinné grilování. Zaměstnanci jsou pečliví, zušlechtí každý detail a jsou vždy vstřícní k našim přáním. Mohu vás jenom doporučit!
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="commentRight col-12 col-lg-6 py-5 px-5">
+                                <div class="row pb-3">
+                                    <div class="col-12 profil">
+                                        <img class="profil-img" src='{$basePath}/images/customers/31.png' alt="Lenka">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 profil-name">Lenka Jadrná, 31 let</div>
+                                </div>
+                                <div class="row pt-3">
+                                    <div class="col-12 d-flex">
+                                        <p class="komentar d-flex align-items-center">
+                                            Jsem nadšená službami firmy Komorník na doma. Jejich komorníci nejenže mi uklidí a upraví zahradu, ale také jsou milí, vstřícní a vždy ochotní pomoci. Díky nim mám více času na sebe a rodinu, což je neocenitelné. Vřele doporučuji jejich služby všem.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div id="slide2" class="slide d-flex w-100">
+                    <div class="text-center mx-auto d-flex justify-content-center align-items-center review container">
+                        <div class="row">
+                            <div class="commentLeft col-12 col-lg-6 py-5 px-5">
+                                <div class="row pb-3">
+                                    <div class="col-12 profil">
+                                        <img class="profil-img" src='{$basePath}/images/customers/52.png' alt="Jana">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 profil-name">Jana Veselá, 52 let</div>
+                                </div>
+                                <div class="row pt-3">
+                                    <div class="col-12 d-flex">
+                                        <p class="komentar d-flex align-items-center">
+                                            Firma Komorník na doma je pro nás záchranou. Jejich schopní zaměstnanci nejen uklízí naši zahradu, ale také nám ulehčují život svou příjemnou a vstřícnou povahou. Díky nim máme více času na relaxaci a společné chvíle s rodinou. Jsme s jejich službami nadmíru spokojeni a doporučujeme je všem.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="commentRight col-12 col-lg-6 py-5 px-5">
+                                <div class="row pb-3">
+                                    <div class="col-12 profil">
+                                        <img class="profil-img" src='{$basePath}/images/customers/46.jpeg' alt="Ladislav">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 profil-name">Ladislav Zojer, 46 let</div>
+                                </div>
+                                <div class="row pt-3">
+                                    <div class="col-12 d-flex">
+                                        <p class="komentar d-flex align-items-center">
+                                            Zaměstnanci od firmy Komorník na doma jsou pro nás skutečnými hrdiny. Jejich péče o naši zahradu nám ušetřila spoustu času a energie. Jsou to milí a ochotní lidé, kteří se vždy postarají o naše potřeby. Jsme vděční za jejich úžasnou práci a rádi je doporučujeme.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div id="slide3" class="slide d-flex w-100">
+                    <div class="text-center mx-auto d-flex justify-content-center align-items-center review container">
+                        <div class="row">
+                            <div class="commentLeft col-12 col-lg-6 py-5 px-5">
+                                <div class="row pb-3">
+                                    <div class="col-12 profil">
+                                        <img class="profil-img" src='{$basePath}/images/customers/39.jpeg' alt="Ota">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 profil-name">Ota Koutný, 39 let</div>
+                                </div>
+                                <div class="row pt-3">
+                                    <div class="col-12 d-flex">
+                                        <p class="komentar d-flex align-items-center">
+                                            Když jsem se chtěl stěhovat, hledal jsem služby, které by mi s tímto úkolem pomohou. Poté jsem narazil na služby Stěhování nábytku od firmy Komorník na doma a z vlastní zkušenosti mohu všem vřele doporučit.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="commentRight col-12 col-lg-6 py-5 px-5">
+                                <div class="row pb-3">
+                                    <div class="col-12 profil">
+                                        <img class="profil-img" src='{$basePath}/images/customers/63.png' alt="Sára">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 profil-name">Sára Novotná, 63 let</div>
+                                </div>
+                                <div class="row pt-3">
+                                    <div class="col-12 d-flex">
+                                        <p class="komentar d-flex align-items-center">
+                                            Služby firmy Komorník na doma doporučuji všem svým přátelům, kteří chtějí pomoci s hlídáním mazlíčky, když jedou na dovolenou. Jednou jsme nemohli vzít svého miláčka na týdenní dovolenou a firma Komorník na doma nám s tímto problémem velice pomohli.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleRide" data-bs-slide="prev">
+            <span class="" aria-hidden="true"><i class="fa-solid fa-chevron-left"></i></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleRide" data-bs-slide="next">
+            <span class="" aria-hidden="true"><i class="fa-solid fa-chevron-right"></i></span>
+        </button>
+    </div>
+</div>
+
+<div class="mx-auto mt-5">
+    <h2 class="pt-5">Nenašli jste, co jste hledali? <a href="mailto:info@komorniknadoma.cz"><br>Napište nám</a></h2>
+</div>

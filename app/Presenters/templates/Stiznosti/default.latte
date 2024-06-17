@@ -1,0 +1,22 @@
+{block content}
+<div class="col-11 card mx-auto pt-4">
+    <h2 class="mx-auto mt-2">Reklamace</h2>
+        <form n:name="careerForm" class="row g-3 px-5 py-3 text-center">
+            <div class="col-md-12">
+                {label email, class => "form-label d-block"}<strong>Email</strong> - Zadávjete ten, pod kterým s námi chcete komunikovat{input email,class => "form-control my-3 col-md-12 mb-3"} {/label}
+            </div>
+            <div class="col-md-12">
+                {label theme, class => "form-label d-block"}Podmět stížnosti{input theme,class => "form-control my-3 col-md-12 mb-3"} {/label}
+            </div>
+          <hr>
+        <div class="col-12 mb-3">
+            {label text, class => "form-label d-block"}Zde prosím napište Vaši stížnost{input text,class => "form-control my-3 col-md-12 mb-3"} {/label}
+        </div>
+        <div class="col-12 pb-2">
+            {input send, class => 'mt-3 btn btn-warning', type => 'submit',onclick=>'return confirm("Odkliknutím OK potvrzujete odeslání");'}
+        </div>
+        </form>
+        <p class="mx-4">* Po zpracováí stížnosti Vás budeme informovat pomocí zadaného emailu.</p>
+        <p class="mx-4">** Předem se omlouváme za jakékoliv způsobené potíže. Dbáme na svou pověst a zastáváme názoru, že každý zákazník by měl být velice potěšen naší prací.</p>
+    </div>
+{/block}

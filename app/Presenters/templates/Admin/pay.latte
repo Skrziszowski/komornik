@@ -1,0 +1,124 @@
+{block content}
+<div class="row">
+  <div class="col-1"></div>
+  <div class="list-group col-6">
+    <h2 n:block="title">Platby schválení</h2>
+    <div id="scrollableWindow">
+      {if $newOrdersCount > 0}
+        {foreach $orders as $order}
+          {switch $order->service_id}
+              {case 1}
+                <button class="accordion">Úklidové služby</button>
+              {case 2}
+                <button class="accordion">Zahradnické služby</button>
+              {case 3}
+                <button class="accordion">Dovoz jídla</button>
+              {case 4}
+                <button class="accordion">Péče o mazlíčka</button>
+              {case 5}
+                <button class="accordion">Stěhování nábytku</button>
+              {case 6}
+                <button class="accordion">Servis auta</button>
+              {default}
+                  <span class="badge rounded-pill bg-secondary fs-5">Úklidové služby</span>
+          {/switch}
+            <div class="panel">
+              <div class="row mt-3">
+                <div class="col-4">
+                  <p>User: {$order->user_id === null ? 'SMAZÁN' : $order->user_id}</p>
+                </div>
+                <div class="col-4">
+                  <p>Typ: {$order->type_service}</p>
+                </div>
+                <div class="col-4">
+                  <p>Cena: {$order->price} Kč</p>
+                </div>
+              </div>
+              {var $order_id = $order->order_id}
+              <div class="row">
+                <div class="col-4">
+                  <p>Datum: {$order->orderDate->format('d.m.Y')}</p>
+                </div>
+                <div class="col-4">
+                  <p>čas: {$order->orderTime->format('%H:%I:%S')}</p>
+                </div>
+                <div class="col-4">
+                  <p>Variabilní symbol: {$order_id}</p>
+                </div>
+              </div>
+
+              <div class="row mb-3">
+                <div class="col-4">
+                  <p>Adresa: {$order->address}</p>
+                </div>
+                <div class="col-4">
+                  <p>Město: {$order->city}</p>
+                </div>
+                <div class="col-4">
+                  <p>Poznámka: {$order->note}</p>
+                </div>
+              </div>
+              <div class="row mb-3">
+                <div class="col-3"></div>
+                <div class="col-3"><a class="btn btn-success" n:href="UpdateStatus! order_id => $order_id,value => 1">Potvrdit</a></div>
+                <div class="col-3"><a class="btn btn-warning" n:href="UpdateStatus! order_id => $order_id,value => 2">Zamítnout</a></div>
+                <div class="col-3"><p><small>{$order->arriveDate->format('d.m.Y H:i')}</small></p></div>
+              </div>
+            </div>
+        {/foreach}
+        {else}
+          <p class="text-warning fs-3 fw-bold mt-3">Super. Žádné platby žádná práce!</p>
+        {/if}
+    </div>  
+  </div>
+  <div class="col-1"></div>
+  <div class="col-3">
+    <ul class="list-group mainInfo mt-5">
+      <li class="list-group-item fs-5">Počet nevyřízených plateb: {$newOrdersCount}</li>
+      <li class="list-group-item fs-5">Počet vyřízených plateb: {$countDoneOrders}</li>
+      <li class="list-group-item fs-5">Tržby: {$sales} Kč</li>
+      <li class="list-group-item fs-5">Průměrná cena objednávky: {$averagePayment} Kč</li>
+    </ul>
+  <canvas id="myOrdersChart" style="width:100%;max-width:800px" class="mt-3"></canvas>    
+  </div>
+</div>
+
+</div>
+<script>
+  const xValues = ["Přijaté platby","Zamítnuné platby"];
+  const yValues = [{$countAcceptedOrders},{$countRejectedOrders}];
+  const barColors = [
+    "#0d14d6",
+    "#ed0c22"
+  ];
+  new Chart("myOrdersChart", {
+    type: "pie",
+    data: {
+      labels: xValues,
+      datasets: [{
+        backgroundColor: barColors,
+        data: yValues
+      }]
+    },
+    options: {
+      title: {
+        display: true,
+        text: "Graf Schválené / Neschválené platby",
+        fontSize: 20
+      }
+    }
+  });
+  var acc = document.getElementsByClassName("accordion");
+    var i;
+    for (i = 0; i < acc.length; i++) {
+      acc[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var panel = this.nextElementSibling;
+        if (panel.style.maxHeight) {
+          panel.style.maxHeight = null;
+        } else {
+          panel.style.maxHeight = panel.scrollHeight + "px";
+        } 
+      });
+    }
+</script>

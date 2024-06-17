@@ -1,0 +1,33 @@
+{block content}
+<div class="container content">
+  {foreach $services as $service}
+    {var $serviceName = $service['heading_card']}
+    <p class="display-3 fw-bold mb-5">{$serviceName}</p>
+    <p class="fs-3 ml-4 mr-4 mb-5">{$service['info_page']}</p>
+    <img src="{$basePath}/{$service['image_source_page']}" alt="{$service['heading_card']}" class="responsive-image mx-auto infoPic mb-5" />
+
+    {foreach explode('|', $service->cards) as $cardString}
+      {var $cardValues = explode(',', $cardString)}
+      {var $name = $cardValues[0]}
+      {var $price = $cardValues[1]}
+      {var $cardServices = array_slice($cardValues, 2)}
+      
+      <div class="card border border-dark rounded-3 d-inline-flex mx-2 my-3">
+          <h5 class="pt-3 fs-2 fw-bold text-warning">{$name}</h5>
+          <h4 class="fs-2 fw-bold pt-2 pb-4">{$price} Kč</h4>
+          <div style="text-align: left;">
+              <ul style="list-style: inside">
+                  {foreach $cardServices as $serviceItem}
+                      <li class="pt-1 pb-2 type">{$serviceItem}</li>
+                  {/foreach}
+              </ul>
+          </div>
+            <a n:href="Home:order 'service_id' => $service->service_id,'program_id' => $iterator->counter" class="buy btn btn-warning mb-4 mx-auto">Objednat</a>
+      </div>
+    {/foreach}
+    <div class="mx-auto mt-3">
+      <h2>Nenašli jste, co jste hledali? <a href="mailto:info@komorniknadoma.cz"><br>Napište nám</a></h2>
+    </div>
+  {/foreach}
+</div>
+{/block}

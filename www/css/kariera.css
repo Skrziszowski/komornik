@@ -1,0 +1,110 @@
+body {
+    background-color: #F2F2F2;
+}
+
+h1, h2 {
+    text-align: center;
+}
+
+.heading {
+    font-size: 3.4375rem auto;
+    font-weight: bold;
+}
+
+#heading {
+    margin-top: -300px;
+    text-align: center;
+}
+
+.cap {
+    margin: 20px 0px;
+    font-size: 1.5em;
+    text-align: center;
+  }
+
+.link-button {
+    text-decoration: none;
+    padding: 15px;
+    background-color: black;
+    color: white;
+    font-size: 1.2em;
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+}
+
+.link-button:hover {
+    text-decoration: inherit;
+    color: black;
+    background-color: white;
+    transition: all .3s ease;
+}
+
+#bottomPic {
+    width: 100%;
+    height: 350px;
+    margin-top: -246px;
+    position: relative;
+    z-index: -1;
+}
+
+#block2 {
+    background-color: rgb(255, 203, 15);
+    margin-top: -60px;
+}
+
+#positions {
+    margin-top: -90px;
+}
+
+#jenkins {
+    height: 400px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    left: -100px;
+    opacity: 0;
+    position: relative;
+}
+
+#jenkins-img {
+    height: 350px;
+    width: 325px;
+}
+
+#hiring-heading {
+    position: relative;
+    left: -200px;
+    opacity: 0;
+}
+
+#hiring-cap, #hiring-button {
+    opacity: 0;
+}
+
+.card-img-top {
+    width: 100px;
+    height: 100px;
+}
+.context{
+    margin-bottom:-100px;
+}
+
+@media screen and (max-width: 530px) {
+    #jenkins-img {
+      height: 240px;
+      width: 215px;
+    }
+    #jenkins {
+        height: auto;
+    }
+  }
+  
+  @media screen and (max-width: 300px) {
+    #jenkins-img {
+      height: 180px;
+      width: 160px;
+    }
+  }

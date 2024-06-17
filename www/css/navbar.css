@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap');
+#logo {
+  width: 350px;
+  height: 120px;
+}
+.nav {
+    background-color: rgb(255, 203, 15);
+    width: 100%;
+}
+.bg-dark {
+    background-color:rgb(255, 203, 15) !important;
+}
+.navbar-brand{
+    margin-right: 0px !important;
+}
+.nav-link {
+    font-size: 22px;
+    color: black !important;
+    font-family: 'Open Sans', sans-serif;
+    min-width: 120px !important;
+} 
+.navbar-toggler {
+    border: none !important;
+}
+.navbar-toggler:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}
+.hamburger {
+    color: black;
+    font-size: 35px;
+}
+#signIn {
+    min-width: 120px !important;
+    font-size: 20px !important;
+}
+#login {
+    width: 350px;
+}
+#login a {
+    background-color: white;
+    text-align: center !important;
+    border-radius: 40px;
+    float: right !important;
+    padding: 8px 16px !important;
+    text-decoration: none !important;
+    color: black;
+}
+li {
+    font-size: 1.5em;
+}
+.center-links a{
+    padding-left: 25px !important;
+    padding-right: 25px !important;
+}
+@media screen and (max-width: 565px) {
+    .navbar-toggler {
+        padding-right: 5px !important;
+    }
+}
+@media screen and (max-width: 992px) {
+    #login {
+        width: auto !important;
+        margin-top: 20px;
+    }
+    .nav-item, #login{
+        text-align: center !important;
+    }
+}
+@media screen and (max-width: 1199px) {
+    #login {
+        width: 270px;
+    }
+    #logo {
+        width: 270px;
+        height: 90px;
+    }
+    .nav-link, .center-links {
+        padding-left: 0px !important;
+    }
+}
+#nav-transition {
+    height: 350px;
+    width: 100%;
+}

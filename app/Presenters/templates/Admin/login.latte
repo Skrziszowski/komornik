@@ -1,0 +1,32 @@
+{block content}
+<div class="d-flex align-items-center text-center justify-content-center flex-wrap mt-3">
+    <div>
+        <div class="row mb-3">
+            <div class="col-10"></div>
+            <a n:href="Home:" class="col-2">
+                <button type="button" class="btn btn-danger mb-3 closeButton">X</button>
+            </a>
+        </div>
+        <form n:name="loginForm" class="row g-3 my-auto mx-auto">
+            <ul class="errors p-0 " n:ifcontent>
+                <li n:foreach="$form->getErrors() as $error" class="list-group-item list-group-item-danger p-3 rounded">{$error}</li>
+            </ul>
+            <h2 n:block="title">Přihlášení</h2>
+            <div class="col-12">
+                {input email, class => "form-control col-12 mt-2", placeholder => "Uživatelské jméno"}
+            </div>
+            <div class="col-12">
+                {input password, class => 'form-control col-12', placeholder => 'Heslo'}
+            </div>
+            <div id="send" class="col-12 ">
+                {input send, class => 'btn btn-warning col-12'}
+            </div>
+            <div class="mt-4">
+                <p>Nemáte účet? <a n:href='Admin:register'>Registrace</a></p>
+            </div>
+        </form>
+    </div>
+    <div class="mt-5" style="width:100%">
+        <p class="h4 mx-auto">Pokud máte problém s přihlášením či zapomenuté heslo, kontaktujte prosím podporu na tel.: +420 789 456 456</p>
+    </div>
+</div>

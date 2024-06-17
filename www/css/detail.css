@@ -1,0 +1,42 @@
+body {
+  background-color:#F2F2F2;
+}
+
+li {
+  font-size: 1.3rem;
+}
+
+.infoPic {
+  border-radius: 5%;
+  width: 80%;
+}
+
+.card {
+  max-width: 21rem;
+  min-width: 21rem;
+  background-color: white;
+}
+
+.buy {
+  width:140px;
+  height: 40px;
+}
+
+.content {
+  margin-top: -300px;
+  margin-bottom:-120px;
+  text-align: center;
+}
+
+.type{ 
+  padding-right:15px;
+  padding-left:10px;
+  margin-left:10px;
+  list-style-position: outside;
+}
+
+@media screen and (max-width: 350px) {
+  .card {
+    min-width: unset;
+  }
+}

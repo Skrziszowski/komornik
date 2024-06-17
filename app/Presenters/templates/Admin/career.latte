@@ -1,0 +1,147 @@
+{block content}
+<div class="row">
+  <div class="col-1"></div>
+  <div class="col-7">
+    <div class="list-group col-10">
+      <h2 n:block="title">Kariéra</h2>
+      <div id="scrollableWindow">
+      {if count($careers) > 0}
+        {foreach $careers as $career}
+            <button class="accordion">{$career->name} {$career->surname}</button>
+            <div class="panel">
+              <div class="row mt-3">
+                <div class="col-4">
+                  <p><strong>Jméno:</strong> {$career->name}</p>
+                </div>
+                <div class="col-4">
+                  <p><strong>Příjmení:</strong> {$career->surname}</p>
+                </div>
+                <div class="col-4">
+                  <p><strong>Email:</strong> {$career->email}</p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-4">
+                  <p><strong>Věk:</strong> {$career->age}</p>
+                </div>
+                <div class="col-4">
+                {switch $career->gender}
+                    {case 'M'}
+                        <p><strong>Pohlaví:</strong> Muž</p>
+                    {case 'F'}
+                        <p><strong>Pohlaví:</strong> Žena</p>
+                    {default}
+                        <p><strong>Pohlaví:</strong> Jiné</p>
+                {/switch}
+                </div>
+                <div class="col-4">
+                  <p><strong>Telefon:</strong> {$career->phone}</p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-3"></div>
+                <div class="col-6">
+                  {switch $career->education}
+                    {case 1}
+                      <p><strong>Vzdělání:</strong> Základní vzdělání</p>
+                    {case 2}
+                      <p><strong>Vzdělání:</strong> Střední vzdělání</p>
+                    {case 3}
+                      <p><strong>Vzdělání:</strong> Vyšší odborné vzdělání</p>
+                    {case 4}
+                      <p><strong>Vzdělání:</strong> Vysokoškolské vzdělání</p>
+                    {default}
+                      <p><strong>Vzdělání:</strong> Základní vzdělání</p>
+                  {/switch}
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-1"></div>
+                <div class="col-10">
+                  <p><strong>Na kterou pozici se hlásíte?</strong><br> {$career->position}</p>
+                </div>
+                <div class="col-1"></div>
+              </div>
+              <div class="row">
+                <div class="col-1"></div>
+                <div class="col-10">
+                  <p><strong>Jaké máte záliby?</strong><br> {$career->hobbies}</p>
+                </div>
+                <div class="col-1"></div>
+              </div>
+              <div class="row">
+                <div class="col-1"></div>
+                <div class="col-10">
+                  <p><strong>Proč zrovna práce u nás?</strong><br> {$career->why}</p>
+                </div>
+                <div class="col-1"></div>
+              </div>
+              <div class="row mb-3">
+                <div class="col-1"></div>
+                <div class="col-10">
+                  <p><strong>Jaké jsou vaše dovednosti?</strong><br> {$career->skills}</p>
+                </div>
+                <div class="col-1"></div>
+              </div>
+              <div class="row mb-3">
+                <div class="col-4"></div>
+                <div class="col-4"><a n:href="UpdateApplication! id=> $career->career_id" class="btn btn-warning">Vyřízeno</a></div>
+                <div class="col-4"><p><small>{$career->date_arrive->format('d.m.Y H:i:s')}</small></p></div>
+              </div>
+            </div>
+        {/foreach}
+      {else}
+        <p class="text-danger fs-3 fw-bold mt-3">Super! Nemáte žádnou nevyřízenou žádost o práci. </p>
+      {/if}
+    </div>
+    </div>
+  </div>
+  <div class="col-3">
+    <ul class="list-group mainInfo mt-5">
+      <li class="list-group-item fs-5">Počet nevyřízených žádostí: {$countCareer}</li>
+      <li class="list-group-item fs-5">Počet všech žádostí: {$countAllCareer}</li>
+      <li class="list-group-item fs-5">Průměrný věk uchazeče: {$averageAge}</li>
+    </ul>
+  <canvas id="myMWChart" style="width:100%;max-width:800px" class="mt-3"></canvas>
+  </div>
+</div>
+</div>
+<script>
+  var acc = document.getElementsByClassName("accordion");
+  var i;
+  for (i = 0; i < acc.length; i++) {
+    acc[i].addEventListener("click", function() {
+      this.classList.toggle("active");
+      var panel = this.nextElementSibling;
+      if (panel.style.maxHeight) {
+        panel.style.maxHeight = null;
+      } else {
+        panel.style.maxHeight = panel.scrollHeight + "px";
+      } 
+    });
+  }
+
+  const xValues = ["Muži","Ženy"];
+  const yValues = [{$countManCareer},{$countWomanCareer}];
+  const barColors = [
+    "#0d14d6",
+    "#ed0c22"
+  ];
+  new Chart("myMWChart", {
+    type: "pie",
+    data: {
+      labels: xValues,
+      datasets: [{
+        backgroundColor: barColors,
+        data: yValues
+      }]
+    },
+    options: {
+      title: {
+        display: true,
+        text: "Graf Muži / Ženy v podání žádosti o práci",
+        fontSize: 20
+      }
+    }
+  });
+</script>

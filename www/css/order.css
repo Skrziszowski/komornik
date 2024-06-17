@@ -1,0 +1,33 @@
+.block {
+    background-color: white;
+    min-height: 600px;
+    z-index: 200;
+    position: relative;
+    margin-top: -320px;
+    margin-bottom: -290px;
+    border-radius: 19px;
+    border: 3px solid black;
+}
+input, textarea{
+    border-radius: 12px !important;
+    border: var(--bs-border-width) var(--bs-border-style) var(--bs-border-color)!important;
+}
+#summary {
+    max-height: 548px !important;
+}
+#timeInput::-webkit-calendar-picker-indicator {
+    padding-left: 120px !important;
+    border: 1px dashed black;
+}
+#dateInput::-webkit-calendar-picker-indicator {
+    padding-left: 80px !important;
+    border: 1px dashed black;
+}
+@media screen and (max-width: 1199px) and (min-width: 768px){
+    #timeInput::-webkit-calendar-picker-indicator {
+        padding-left: 270px !important;
+    }
+    #dateInput::-webkit-calendar-picker-indicator {
+        padding-left: 270px !important;
+    }    
+}

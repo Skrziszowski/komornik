@@ -1,0 +1,47 @@
+{block content}
+
+<div class="row">
+  <div class="col-1"></div>
+  <div class="col-7">
+    <div class="list-group col-10">
+      <h2 n:block="title">Stížnosti</h2>
+      <div id="scrollableWindow">
+        {if count($complaints) > 0}
+          {foreach $complaints as $complaint}
+          {var $id = $complaint['complaint_id']}
+              <button class="accordion">{$complaint->theme}</button>
+              <div class="panel">
+                  <p class="mt-3"><strong>Email:</strong> {$complaint->email}</p>
+                  <p><strong>Text:</strong> {$complaint->mainText}</p>
+                  <p><strong>Datum doručení:</strong> {$complaint->date_arrive->format('d.m.Y H:i:s')}</p>
+                  <a class="btn btn-warning mb-3" n:href="RemoveComplaint! id=> $id">Vyřízeno</a>
+              </div>
+          {/foreach}
+        {else}
+          <p class="text-danger fs-3 fw-bold mt-3">Super! Nemáte žádnou nevyřízenou stížnost. </p>
+        {/if}
+      </div>
+    </div>
+  </div>
+  <div class="col-3 mt-5">
+    <ul class="list-group mainInfo">
+      <li class="list-group-item fs-5">Počet nevyřízených stížností: {$countComplaints}</li>
+    </ul>
+  </div>
+</div>
+</div>
+<script>
+  var acc = document.getElementsByClassName("accordion");
+  var i;
+  for (i = 0; i < acc.length; i++) {
+    acc[i].addEventListener("click", function() {
+      this.classList.toggle("active");
+      var panel = this.nextElementSibling;
+      if (panel.style.maxHeight) {
+        panel.style.maxHeight = null;
+      } else {
+        panel.style.maxHeight = panel.scrollHeight + "px";
+      } 
+    });
+  }
+</script>

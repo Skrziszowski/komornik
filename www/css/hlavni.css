@@ -1,0 +1,269 @@
+html {
+  scroll-behavior: smooth;
+}
+body {
+  background-color: #F2F2F2;
+}
+a {
+  text-decoration: none;
+}
+h1, h2 {
+  text-align: center;
+}
+#heading {
+  font-size: 3.5em;
+  font-weight: 700;
+}
+#opening-cap {
+  font-size: 2.5em;
+}
+#opening {
+  margin-top: -350px;
+  margin-bottom: -250px;
+}
+#bottomPic {
+  width: 100%;
+  height: 350px;
+  margin-top: -180px;
+}
+.block {
+  min-height: 600px !important;
+}
+.block-one {
+  background-color: rgb(255, 203, 15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  flex-direction: column;
+  padding-bottom: 20px;
+}
+#block2 {
+  min-height: 450px !important;
+}
+.card{
+  width: 240px;
+  height: 150px;       
+  text-align: center;                     
+}
+.card-img-top{
+  width: 80px;
+  height: auto;
+}
+.card-title{
+  font-size: 1.2em;
+}
+.card-img-container {
+  height: inherit;
+}
+.left-banner {
+  background-color: green;
+  background-image: url("https://assets.nicepagecdn.com/d2cc3eaa/3854207/images/rt.jpg");
+  height: 600px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.right-banner {
+  background-color: white;
+  height: 600px;
+  display: flex;
+}
+.right-banner span {
+  font-size: 1.2em;
+}
+.right-content {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.profil {
+  text-align: left;
+  margin-bottom: 10px;
+}
+.profil-img {
+  border: 3px solid black;
+  height: 150px;
+  border-radius: 50%;
+  width: 150px;
+  margin-left: 0px;
+}
+.profil-name {
+  text-align: left;
+  font-size: 1.7em;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.komentar {
+  font-size: 1.3em;
+  line-height: 40px;
+  text-align: justify;
+}
+.carousel-indicators button {
+  cursor: pointer;
+  background-color: rgb(127,127,127) !important;
+  text-decoration: none !important;
+  border: 0 !important;
+  border-radius: 12px !important;
+  height: 10px !important;
+  width: 10px !important;
+  margin-bottom: 15px;
+  margin-left: 7px !important;
+  margin-right: 7px !important;
+}
+.review {
+  width: 80%;
+}
+.carousel-indicators .active {
+  background-color: black !important;
+}
+.commentLeft {
+  left: -75px;
+  bottom: -100px;
+  position: relative;
+  opacity: 0;
+  transform: scale(0.5);
+  transition: opacity 0.1s, transform 1.5s;
+}
+.commentRight {
+  position: relative;
+  bottom: -150px;
+  opacity: 0;
+  transform: scale(0.5);
+  transition: opacity 0.3s, transform 2s;
+}
+button span {
+  color: black !important;
+  font-size: 26px;
+}
+.black-font {
+  color: black !important;
+}
+.slide {
+  min-height: 650px;
+}
+#slide1 {
+  background-color: rgb(255, 203, 15);
+}
+#slide2 {
+  background-color: white;
+}
+#slide3 {
+  background-color: #ccc;
+}
+#services {
+ margin-top: -370px;
+}
+#services-heading, #cards {
+  transform: scale(0.5);
+  transition: opacity 0.1s, transform 1.5s;
+  opacity: 0;
+}
+#pillars-heading, #qualities-image {
+  opacity: 0;
+  transform: scale(0.25);
+  transition: opacity 1500ms, transform 1500ms;
+}
+#left-pillar{
+  opacity: 0;
+  transform: scale(0.5);
+  transition: opacity 3s, transform 3s;
+}
+#right-pillar, #qualities {
+  opacity: 0;
+  transform: scale(0.35);
+  transition: opacity 0.3s, transform 2s;
+}
+.heading {
+  font-size: 3.4375rem;
+}
+.link-button {
+  text-decoration: none;
+  padding: 15px;
+  background-color: black;
+  color: white;
+  font-size: 1.2em;
+  text-align: center;
+  font-weight: bold;
+}
+.link-button:hover {
+  text-decoration: inherit;
+  color: black;
+  background-color: white;
+  transition: all .3s ease;
+}
+.cap {
+  margin: 20px 0px;
+  font-size: 1.5em;
+  text-align: center;
+}
+.apostrofa {
+  height: 50px;
+  width: 75px;
+}
+@keyframes rotateApostrofa {
+  0% {
+      transform: rotate(0deg);
+  }
+  100% {
+      transform: rotate(360deg);
+  }
+}
+@media screen and (max-width: 500px) {
+  .cap {
+    font-size: 1.5em !important;
+  }
+  .heading {
+    font-size: 1.75rem !important;
+  }
+  #qualities h3 {
+    font-size: 1rem;
+  }
+  #qualities i {
+    margin-right: 20px !important;
+  }
+  #block4 span {
+    font-size: 1rem;
+  }
+}
+@media screen and (max-width: 992px) {
+  #block5 {
+    display: none !important;;
+  }
+  .heading {
+    font-size: 2.75rem;
+  }
+}
+@media screen and (max-width: 1199px) {
+  .komentar {
+    font-size: 19px !important;
+    line-height: 30px;
+    text-align: center;
+  }
+  .profil {
+    text-align: center;
+  }
+  .profil-img {
+    height: 120px;
+    width: 120px;
+  }
+  .profil-name {
+    text-align: center;
+    padding-left: 0px !important;
+  }
+  #ramecek {
+    max-width: 100%;
+  }
+}
+@media screen and (max-width: 1354px) and (min-width: 970px) {
+  .block-one .h2{
+    font-size: 19px!important;
+  }
+  .block-one h1{
+    font-size: 45px!important;
+    font-weight: 600;
+  }
+}
